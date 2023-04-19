@@ -13,11 +13,11 @@ import { ContentsComponent } from 'app/admin/page/contents/contents.component';
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: HomeComponent },
     { path: 'contents', loadChildren: () => import('../../admin/page/contents/contents.module').then(x => x.ContentsModule) },
-    { path: 'user', component: UserComponent },
-    { path: 'table', component: TablesComponent },
-    { path: 'typography', component: TypographyComponent },
-    { path: 'icons', component: IconsComponent },
-    { path: 'maps', component: MapsComponent },
-    { path: 'notifications', component: NotificationsComponent },
-    { path: 'upgrade', component: UpgradeComponent },
+    // { path: 'user', component: UserComponent },
+    // { path: 'table', component: TablesComponent },
+    // { path: 'typography', component: TypographyComponent },
+    // { path: 'icons', component: IconsComponent },
+    // { path: 'maps', component: MapsComponent },
+    // { path: 'notifications', component: NotificationsComponent },
+    // { path: 'upgrade', component: UpgradeComponent },
 ];

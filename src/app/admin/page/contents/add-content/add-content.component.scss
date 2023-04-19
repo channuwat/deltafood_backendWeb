@@ -1,0 +1,27 @@
+.card {
+    padding: 20px;
+}
+
+.inp-row {
+    margin-bottom: 20px;
+}
+
+#file{
+    display: none;
+}
+
+.btn-group{
+    display: flex;
+    justify-content: center;
+    .btn{
+        margin: 0px 5px;
+    }
+}
+
+.preview-img {
+    text-align: center;
+    border: solid 1px rgb(23, 23, 23);
+    border-radius: 15px;
+    padding: 5px;
+    cursor: pointer;
+}

@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { ContentsRoutingModule } from './contents-routing.module';
 import { ContentsComponent } from './contents.component';
 import { AddContentComponent } from './add-content/add-content.component';
-
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,10 @@ import { AddContentComponent } from './add-content/add-content.component';
   ],
   imports: [
     CommonModule,
-    ContentsRoutingModule
+    ContentsRoutingModule,
+    AngularEditorModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ContentsModule { }
