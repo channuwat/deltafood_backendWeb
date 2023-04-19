@@ -35,8 +35,7 @@ import { ContentsComponent } from 'app/admin/page/contents/contents.component';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
-    UpgradeComponent,
-    ContentsComponent
+    UpgradeComponent
   ]
 })
 

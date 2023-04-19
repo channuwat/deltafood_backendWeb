@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiConnectService } from 'app/admin/api-connect.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ApiConnectService } from 'app/admin/api-connect.service';
 })
 export class ContentsComponent implements OnInit {
 
-  constructor(public api : ApiConnectService) { }
+  constructor(public api: ApiConnectService, public route: Router) { }
 
   ngOnInit(): void {
     this.loadGroup()
@@ -21,8 +22,8 @@ export class ContentsComponent implements OnInit {
     })
   }
 
-  addArticle(){
-    
+  addArticle(val: any) {
+    this.route.navigateByUrl('/contents/add-content', { state: { data: val } })
   }
 
 }

@@ -5,7 +5,7 @@
                 <div class="card">
                     <div class="header">
                         <div>
-                            <button class="btn btn-add btn-primary btn-fill" (click)="addArticle()">เพิ่มบทความ</button>
+                            <button class="btn btn-add btn-primary btn-fill" (click)="addArticle(null)">เพิ่มบทความ</button>
                             <p class="category">จำนวนทั้งหมด 999 บทความ</p>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
                                     <td>{{item.update_date}}</td>
                                     <td>
                                         <div class="btn-group">
-                                            <button class="btn btn-sm btn-warning btn-fill">แก้ไข</button>
+                                            <button class="btn btn-sm btn-warning btn-fill" (click)="addArticle(item)">แก้ไข</button>
                                             <button class="btn btn-sm btn-danger btn-fill">ลบ</button>
                                         </div>
                                     </td>
