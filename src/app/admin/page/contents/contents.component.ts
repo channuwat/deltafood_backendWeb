@@ -28,4 +28,16 @@ export class ContentsComponent implements OnInit {
     this.route.navigateByUrl('/contents/add-content', { state: { data: val } })
   }
 
+  delArticle(id: number) {
+    this.api.delConfirm(() => {
+      this.api.postData('Article_ctr/delArticle', { article_id: id }).then((res: any) => {
+        if (res.flag) {
+          this.api.save_success()
+        } else {
+          this.api.save_error()
+        }
+      })
+    })
+  }
+
 }

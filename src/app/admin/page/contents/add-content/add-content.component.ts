@@ -79,8 +79,16 @@ export class AddContentComponent implements OnInit {
     if (this.data.article_id > 0) {
       pass_data.article_id = this.data.article_id
     }
-    console.log(pass_data);
 
+    this.api.saveConfirm(() => {
+      this.api.postData('Article_ctr/addArticle', pass_data).then((res: any) => {
+        if (res.flag) {
+          this.api.save_success()
+        } else {
+          this.api.save_error()
+        }
+      })
+    })
   }
 
 }
