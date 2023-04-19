@@ -4,8 +4,10 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">บทความ</h4>
-                        <p class="category">จำนวนทั้งหมด 999 บทความ</p>
+                        <div>
+                            <button class="btn btn-add btn-primary btn-fill" (click)="addArticle()">เพิ่มบทความ</button>
+                            <p class="category">จำนวนทั้งหมด 999 บทความ</p>
+                        </div>
                     </div>
                     <div class="content table-responsive table-full-width">
                         <table class="table table-hover table-striped">
@@ -19,12 +21,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let row of [1,2,33,6,6,4,654,65,65,5,32,4,654,56,31,55]">
-                                    <td>{{row}}</td>
-                                    <td>{{row}}</td>
-                                    <td>sadfas</td>
-                                    <td>asdasdf</td>
-                                    <td>f{{row}}0</td>
+                                <tr *ngFor="let item of groups">
+                                    <td>{{item.title}}</td>
+                                    <td>0</td>
+                                    <td>{{item.create_date}}</td>
+                                    <td>{{item.update_date}}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button class="btn btn-sm btn-warning btn-fill">แก้ไข</button>
+                                            <button class="btn btn-sm btn-danger btn-fill">ลบ</button>
+                                        </div>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

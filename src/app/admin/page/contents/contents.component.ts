@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiConnectService } from 'app/admin/api-connect.service';
 
 @Component({
   selector: 'app-contents',
@@ -7,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public api : ApiConnectService) { }
 
-  tableData1: any = [5,1,5,6,5,4,2,6,5,1,65,4,2,5,5,2,546,5]
   ngOnInit(): void {
+    this.loadGroup()
+  }
+
+  groups: any = []
+  loadGroup() {
+    this.api.getData('article_ctr/load_group_article').then((res: any) => {
+      this.groups = res
+    })
+  }
+
+  addArticle(){
+    
   }
 
 }
