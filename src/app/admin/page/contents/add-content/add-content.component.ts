@@ -30,6 +30,7 @@ export class AddContentComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.data);
     this.loadGroupContent()
+    this.setForm()
   }
 
   contentG: any[] = []
@@ -37,6 +38,17 @@ export class AddContentComponent implements OnInit {
     this.api.getData('Article_ctr/loadGroupContent').then((res: any) => {
       this.contentG = res
     })
+  }
+
+  setForm() {
+    if (this.data != null) {
+      this.formG.patchValue({
+        article_group_id: this.data.article_group_id,
+        title: this.data.title,
+        content: this.data.content,
+        hashtag: this.data.hashtag,
+      })
+    }
   }
 
   img: any = { url: 'https://deltafood.me/2022/wp-content/uploads/2022/05/header-logo-1024x378.webp' }
@@ -62,9 +74,13 @@ export class AddContentComponent implements OnInit {
     }
   }
 
-  save(){
-    console.log(this.formG.value);
-    
+  save() {
+    let pass_data = this.api.copyVal(this.formG.value)
+    if (this.data.article_id > 0) {
+      pass_data.article_id = this.data.article_id
+    }
+    console.log(pass_data);
+
   }
 
 }

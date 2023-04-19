@@ -38,6 +38,11 @@ export class ApiConnectService {
     localStorage.setItem(key, JSON.stringify(val))
   }
 
+  copyVal(data: any) {
+    let val = JSON.parse(JSON.stringify(data))
+    return val
+  }
+
   // save_success() {
   //   Swal.fire({
   //     position: 'top-end',

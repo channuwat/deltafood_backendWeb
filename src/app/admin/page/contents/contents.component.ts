@@ -12,13 +12,15 @@ export class ContentsComponent implements OnInit {
   constructor(public api: ApiConnectService, public route: Router) { }
 
   ngOnInit(): void {
-    this.loadGroup()
+    this.loadArticles()
   }
 
   groups: any = []
-  loadGroup() {
-    this.api.getData('article_ctr/load_group_article').then((res: any) => {
-      this.groups = res
+  count: number = 0
+  loadArticles() {
+    this.api.getData('article_ctr/loadArticles').then((res: any) => {
+      this.groups = res.content
+      this.count = res.count
     })
   }
 
