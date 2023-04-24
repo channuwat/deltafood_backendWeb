@@ -9,7 +9,9 @@ import { ApiConnectService } from 'app/admin/api-connect.service';
 })
 export class ContentsComponent implements OnInit {
 
-  constructor(public api: ApiConnectService, public route: Router) { }
+  constructor(public api: ApiConnectService, public route: Router) {
+    api.isLogin()
+  }
 
   ngOnInit(): void {
     this.loadArticles()

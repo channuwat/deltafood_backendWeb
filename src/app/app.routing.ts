@@ -21,6 +21,10 @@ const routes: Routes = [
       }]
   },
   {
+    path: 'login',
+    loadChildren: () => import('./admin/login/login.module').then(x => x.LoginModule)
+  },
+  {
     path: '**',
     redirectTo: 'dashboard'
   }

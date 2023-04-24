@@ -1,0 +1,20 @@
+<div class="container login-container">
+    <div class="row">
+        <div class="col-md-12 login-form-1">
+            <h3>Login เข้าสู่ระบบ</h3>
+            <div class="f-login">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="กรอก User ที่นี้ *" [(ngModel)]="user" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="กรอก Password ที่นี้ *" [(ngModel)]="password" />
+                    </div>
+                    <div class="form-group">
+                        <button class="btnSubmit" (click)="login()">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { environment } from 'environments/environment';
 import Swal from 'sweetalert2'
 
@@ -8,7 +9,7 @@ import Swal from 'sweetalert2'
 })
 export class ApiConnectService {
 
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient, public router: Router) { }
 
   getData(method: string) {
     return new Promise((reject, resove) => {
@@ -46,13 +47,13 @@ export class ApiConnectService {
 
   saveConfirm(fn) {
     Swal.fire({
-      icon:'info',
+      icon: 'info',
       title: 'ยืนยันการบันทึก?',
       showDenyButton: false,
       showCancelButton: true,
-      confirmButtonColor:'#87cb16',
+      confirmButtonColor: '#87cb16',
       confirmButtonText: 'บันทึก',
-      cancelButtonText:'ปิด'
+      cancelButtonText: 'ปิด'
     }).then((result) => {
       if (result.isConfirmed) {
         fn()
@@ -64,13 +65,13 @@ export class ApiConnectService {
 
   delConfirm(fn) {
     Swal.fire({
-      icon:'warning',
+      icon: 'warning',
       title: 'ต้องการลบข้อมูลใช่หรือไม่?',
       showDenyButton: false,
       showCancelButton: true,
-      confirmButtonColor:'#ff4a55',
+      confirmButtonColor: '#ff4a55',
       confirmButtonText: 'ใช่, ลบข้อมูล',
-      cancelButtonText:'ปิด'
+      cancelButtonText: 'ปิด'
     }).then((result) => {
       if (result.isConfirmed) {
         fn()
@@ -98,5 +99,20 @@ export class ApiConnectService {
       showConfirmButton: false,
       timer: 1500
     })
+  }
+
+  isLogin() {
+    const login = this.getStore('login')
+    if (login !== true) {
+      Swal.fire({
+        icon: 'error',
+        title: 'โปรด Login เข้าสู่ระบบ!',
+        timer: 3000,
+        showConfirmButton: true,
+        confirmButtonColor: '#ff4a55',
+        confirmButtonText: 'ตกลง, ฉันเข้าใจ'
+      })
+      this.router.navigate(['/login'])
+    }
   }
 }

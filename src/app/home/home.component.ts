@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import { LegendItem, ChartType } from '../lbd/lbd-chart/lbd-chart.component';
 import * as Chartist from 'chartist';
+import { ApiConnectService } from 'app/admin/api-connect.service';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +25,9 @@ export class HomeComponent implements OnInit {
   public activityChartOptions: any;
   public activityChartResponsive: any[];
   public activityChartLegendItems: LegendItem[];
-  constructor() { }
+  constructor(public api: ApiConnectService) {
+    api.isLogin()
+  }
 
   ngOnInit() {
     this.emailChartType = ChartType.Pie;
@@ -40,14 +43,14 @@ export class HomeComponent implements OnInit {
 
     const times: any = (() => {
       let t: string[] = []
-      for (let i = 0; i <= 24; i+=3) {
+      for (let i = 0; i <= 24; i += 3) {
         let _t = String(i).padStart(2, '0')
         t.push(_t + ':00 น.')
       }
       return t
     })
 
-    const visit :any = (()=>{
+    const visit: any = (() => {
       return Math.round(Math.random() * 50);
     })
 
@@ -55,7 +58,7 @@ export class HomeComponent implements OnInit {
     this.hoursChartData = {
       labels: times(),
       series: [
-        [visit(),visit(),visit(),visit(),visit(),visit(),visit(),visit(),visit(),]
+        [visit(), visit(), visit(), visit(), visit(), visit(), visit(), visit(), visit(),]
       ]
     };
     this.hoursChartOptions = {

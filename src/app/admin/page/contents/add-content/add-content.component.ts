@@ -17,6 +17,7 @@ export class AddContentComponent implements OnInit {
 
   formG: FormGroup
   constructor(public router: Router, public api: ApiConnectService) {
+    api.isLogin()
     this.data = this.router.getCurrentNavigation()?.extras?.state?.data ?? null
     this.formG = new FormGroup({
       article_group_id: new FormControl(null, Validators.required),
