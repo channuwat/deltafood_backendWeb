@@ -4,7 +4,7 @@
 // The list of which env maps to which file can be found in `angular-cli.json`.
 export const environment = {
   production: false,
-  host : 'http://192.168.1.149/api/index.php/',
-  path : 'http://192.168.1.149/api/'
+  host : 'https://deltapos.me/index.php/',
+  path : 'https://deltapos.me/'
 };
 
